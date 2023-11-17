@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stddef.>
+#include <stddef.h>
 /**
  *_printf - recreate the function printf
  *
@@ -9,32 +9,37 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j, k;
+	int i = 0, j;
 	char *ptr;
-
+	
 	va_list(args);
 	va_start(args, format);
 
 	while (format != NULL && format[i])
 	{
+
 		switch (format[i])
 		{
-			case (s):
-			j = 0;
-			ptr[j] = va_arg(args, char);
-			write(1, &s, 1);
-			j++;
+			case 's':
+			if (ptr == NULL)
+			{
+				return (0);
+			}
+			ptr = va_arg(args, char *);
+			while (ptr[j])
+				j++;
+
+			write(1, "&s", 1);
 				break;
 
-			case (c):
-			ptr = va_arg(args, int);
-			write(1, &c, 1);
+			case 'c':
+			ptr = va_arg(args, char *);
+			write(1, "&c", 1);
+				break;
+			
+			default:
 				break;
 
-			case ('%'):
-			ptr = va_arg(args, char);
-			write(1, &'%', 1);
-				break;
 		}
 		write(1, &format[i], 1);
 	}
