@@ -10,14 +10,13 @@
 int _printf(const char *format, ...)
 {
 	int i = 0, j;
-	char *ptr;
+	char *ptr = NULL;
 	
 	va_list(args);
 	va_start(args, format);
 
 	while (format != NULL && format[i])
 	{
-
 		switch (format[i])
 		{
 			case 's':
@@ -28,7 +27,6 @@ int _printf(const char *format, ...)
 			ptr = va_arg(args, char *);
 			while (ptr[j])
 				j++;
-
 			write(1, "&s", 1);
 				break;
 
@@ -42,7 +40,8 @@ int _printf(const char *format, ...)
 
 		}
 		write(1, &format[i], 1);
+		i++;
 	}
-	i++;
-	return (0);
+	return(0);
+	va_end(args);
 }
