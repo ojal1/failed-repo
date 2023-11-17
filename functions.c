@@ -41,7 +41,7 @@ int _printint_d(va_list args)
 }
 
 /**
- * print_int_i - print a unsigned integer.
+ * _printint_i - print a unsigned integer.
  * @args: Parameters.
  * Return: Count.
  */
