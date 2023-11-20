@@ -8,6 +8,7 @@ int _printf(const char *format, ...)
 {
 	int i = 0, j = 0;
 	char *ptr;
+	int count = 0;
 
 	va_list(args);
 	va_start(args, format);
@@ -35,6 +36,7 @@ int _printf(const char *format, ...)
 					{	
 						write(1, &ptr[j], 1);
 						j++;
+						count++;
 					}
 					break;
 
