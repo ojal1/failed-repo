@@ -1,78 +1,33 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-
 /**
- * _printint_d - print a signed integer.
- * @args: parameters.
- * Return: Count.
+ *s_case - function that print a string 
+ *@args: the arguments 
+ *@count: count the string length
  */
-
-int _printint_d(va_list args)
+void s_case(va_list args, int *count)
 {
-	int count = 0;
-	char num_str[12];
-	int len = 0, i, num = va_arg(args, int);
+	char *ptr;
 
-	if (num == 0)
+	ptr = va_arg(args, char *);
+	if (ptr == NULL)
 	{
-		write(1, "0", 1);
-		count++;
+		write(1, "(null)", 6);
+		*count += 6;
 	}
-
-	if (num < 0)
-	{
-		write(1, "-", 1);
-		count++;
-		num = -num;
-	}
-
-	while (num != 0)
-	{
-		num_str[len++] = num % 10 + '0';
-		num /= 10;
-	}
-
-	for (i = len - 1; i >= 0; i--)
-	{
-		write(1, &num_str[i], 1);
-		count++;
-	}
-
-	return (count);
+		write(1, ptr, _strlen(ptr));
+		*count += _strlen(ptr);
 }
 
 /**
- * _printint_i - print a unsigned integer.
- * @args: Parameters.
- * Return: Count.
+ *c_case - function that print a single character
+ *@args: the argument
+ *@count: count the argument
  */
-
-int _printint_i(va_list args)
+void c_case(va_list args, int *count)
 {
-	int count = 0;
-	char num_str[12];
-	int len = 0, i, num = va_arg(args, int);
+	char *ptr;
 
-	if (num == 0)
-	{
-		write(1, "0", 1);
-		count++;
-	}
-	else
-	{
-		while (num != 0)
-		{
-			num_str[len++] = num % 10 + '0';
-			num /= 10;
-		}
-
-		for (i = len - 1; i >= 0; i--)
-		{
-			write(1, &num_str[i], 1);
-			count++;
-		}
-	}
-
-	return (count);
+	ptr = va_arg(args, char *);
+	write(1, &ptr, 1);
+	*count += 1;
 }
