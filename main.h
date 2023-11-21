@@ -8,6 +8,5 @@
 /*Function Prototypes*/
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _putchar(char);
-int _print_int(va_list args);
+void _print_int(char specifier, va_list args, int *count);
 #endif
