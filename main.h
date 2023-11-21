@@ -8,6 +8,6 @@
 /*Function Prototypes*/
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _printint_d(va_list args);
-int _printint_i(va_list args);
+int _putchar(char);
+int _print_int(va_list args);
 #endif
