@@ -6,9 +6,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0;
+	int i = 0;
 	int count = 0;
-	char *ptr;
 
 	va_list args;
 	va_start(args, format);
@@ -17,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			format++;
+			i++;
 
 			switch (format[i])
 			{
@@ -26,28 +25,13 @@ int _printf(const char *format, ...)
 				break;
 
 			case 's': /* case of a string */
-				ptr = va_arg(args, char *);
-				if (ptr == NULL)
-				{
-					write(1, "(null)", 6);
-				}
-				while (ptr[j] != '\0')
-				{
-					write(1, &ptr[j], 1);
-					j++;
-					count++;
-				}
+				s_case(args, &count);
 				break;
 
-			case 'c': /* case of single character */
-				ptr = va_arg(args, char *);
-				if (ptr == NULL)
-				{
-					write(1, "(null)", 6);
-					return (6);
-				}
-				write(1, &ptr, 1);
+			case 'c': /* case of a single character */
+				c_case(args, &count);
 				break;
+
 			default:
 				write(1, "%", 1);
 				write(1, &format[i], 1);
