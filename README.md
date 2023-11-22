@@ -14,7 +14,7 @@ Currently, we are going to focus on the most common ones for how to print: integ
 
 3) Being able to print a 'char' (%c).
 
-4) Being able to print a 'char []' (%s).
+4) Being able to print a 'string' (%s).
 
 5) Being able to print a 'Percent sign' (%%).
 
