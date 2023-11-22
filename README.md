@@ -25,6 +25,6 @@ Currently, we are going to focus on the most common ones for how to print: integ
 - _printf("This is a number: %d", 98) prints "This is a number: 98"
 
 # Files
-The primary file being utilized is _printf.c wich contains the _printf function itself. This file is linked to a heder file named main.h, as well as function prototypes for functions.c.
+The primary file being utilized is _printf.c wich contains the _printf function itself. This file is linked to a header file named main.h, as well as function prototypes for functions.c.
 
 A man page has been included, called man_3_printf.
